@@ -25,6 +25,6 @@ class PollAdmin(admin.ModelAdmin):
 	# Adds search box to search by question
 	search_fields = ['question']
 	# Adds the ability to drill down by publishing date
-	date_hierarchy = 'pub_date'
+	date_hierarchy = ['pub_date']
 
 admin.site.register(Poll, PollAdmin)

@@ -12,6 +12,19 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Dynamic path for settings - TWD chapter 4
+SETTINGS_DIR = os.path.dirname(__file__)
+
+# Root directory for project
+PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
+
+# Template path
+TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
+TEMPLATE_DIRS = (
+	TEMPLATE_PATH,
+)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/

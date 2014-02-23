@@ -9,10 +9,35 @@
 	</head>
 
 	<body>
-		<h1>Rango says...</h1>
-		hello world! <strong>{{ boldmessage }}</strong><br />
+		<h1>Rango says... hello world</h1>
+		
+		{% if categories %}
+			<ul>
+				{% for category in categories %}
+				<li><a href="/rango/category/{{ category.url }}">{{ category.name }}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>There are no categories to present.</strong>
+		{% endif %}
+		<br />
+		<h2>Top 5 Pages</h2>
+		{% if top_pages %}
+			<ul>
+				{% for page in top_pages %}
+				<li>{{ page.title }}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>You have no top pages yet.</strong>
+		{% endif %}
+		<br />
+		<br />
+		
+		
+
 		<a href="/rango/about/">About</a><br />
-		<img src="{% static "munstery.jpg" %}" alt="Picture of Munster" /> <!-- New line -->
+		<img src="{% static "munster.jpg" %}" alt="Picture of Munster" /> <!-- New line -->
 	</body>
 
 </html>

@@ -13,7 +13,11 @@ class Poll(models.Model):
 		return self.question
 
 	def was_published_recently(self):
+		# Returns 'True' if the Poll was published in the last 24 hours
 		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+	was_published_recently.admin_order_field = 'pub_date'
+	was_published_recently.boolean = True
+	was_published_recently.short_description = 'Published recently?'
 
 class Choice(models.Model):
 	poll = models.ForeignKey(Poll)
