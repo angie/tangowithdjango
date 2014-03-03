@@ -28,6 +28,9 @@ STATICFILES_DIRS = (
     STATIC_PATH,
 )
 
+# Database path
+DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -86,8 +89,6 @@ DATABASES = {
         'NAME': DATABASE_PATH,
     }
 }
-
-DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

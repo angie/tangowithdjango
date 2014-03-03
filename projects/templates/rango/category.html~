@@ -6,7 +6,6 @@
 	
 	<body>
 		<h1>{{ category_name }}</h1>
-		<h2>{{ category_name_url }}</h2>
 		{% if category %}
 			{% if pages %}
 			<ul>

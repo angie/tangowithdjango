@@ -9,8 +9,12 @@
 	</head>
 
 	<body>
-		<h1>Rango says... hello world</h1>
-		
+		{% if user.is_authenticated %}
+			<!-- don't need user.username due to __unicode__() method in models.py -->
+			<h1>Rango says... hello {{ user }}</h1>
+		{% else %}
+			<h1>Rango says... hello world</h1>
+		{% endif %}
 		{% if categories %}
 			<ul>
 				{% for category in categories %}
@@ -36,7 +40,16 @@
 		
 		
 
-		<a href="/rango/about/">About</a><br />
+		<a href="{% url 'about' %}">About</a><br />
+		<a href="{% url 'add_category' %}">Add a new Category</a><br />
+		
+		{% if user.is_authenticated %}
+		<a href="{% url 'restricted' %}">Restricted page</a><br />
+		<a href="{% url 'logout' %}">Log out</a><br />
+		{% else %}
+		<a href="{% url 'register' %}">Register here!</a><br />
+		<a href="{% url 'login' %}"><strong>Log In</strong></a><br />
+		{% endif %}
 		<img src="{% static "munster.jpg" %}" alt="Picture of Munster" /> <!-- New line -->
 	</body>
 
